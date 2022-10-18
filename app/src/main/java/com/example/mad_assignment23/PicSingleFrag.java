@@ -1,22 +1,28 @@
 package com.example.mad_assignment23;
 
-import android.app.Fragment;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.GridLayoutManager;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.List;
 
+import androidx.lifecycle.ViewModelStoreOwner;
 public class PicSingleFrag extends Fragment {
 
     List<Bitmap> bitmapList;
+    SharedViewModel viewModel;
     public PicSingleFrag() {
         // Required empty public constructor
     }
@@ -31,7 +37,9 @@ public class PicSingleFrag extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        viewModel = new ViewModelProvider((ViewModelStoreOwner) getActivity(), (ViewModelProvider.Factory) new ViewModelProvider.NewInstanceFactory()).get(SharedViewModel.class);
         //bitmapList =  from view model;
+        bitmapList = viewModel.getBitmapList();
 
 
     }
@@ -43,7 +51,8 @@ public class PicSingleFrag extends Fragment {
         Button change = v.findViewById(R.id.change_view);
         RecyclerView rv = v.findViewById(R.id.imageRecyc);
         rv.setLayoutManager(new LinearLayoutManager(getActivity()));
-
+        PicSingleAdapt picSingleAdapt = new PicSingleAdapt(bitmapList);
+        rv.setAdapter(picSingleAdapt);
 
         change.setOnClickListener(new View.OnClickListener() {
             @Override

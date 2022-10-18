@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,6 +20,7 @@ import java.util.List;
 public class PicGridFrag extends Fragment {
 
     List<Bitmap> bitmapList;
+    SharedViewModel viewModel;
     public PicGridFrag() {
         // Required empty public constructor
     }
@@ -34,7 +36,9 @@ public class PicGridFrag extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bitmapList = getArguments().getParcelableArrayList("Image list");
-        int i = 0;
+        viewModel = new ViewModelProvider(getActivity(), (ViewModelProvider.Factory) new ViewModelProvider.NewInstanceFactory()).get(SharedViewModel.class);
+        viewModel.setData(bitmapList);
+
 
     }
 
@@ -51,6 +55,8 @@ public class PicGridFrag extends Fragment {
             @Override
             public void onClick(View view) {
                 AppCompatActivity activity = (AppCompatActivity) view.getContext();
+                PicSingleFrag picFrag = new PicSingleFrag();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.imageFrag, picFrag).addToBackStack(null).commit();
 
             }
         });
