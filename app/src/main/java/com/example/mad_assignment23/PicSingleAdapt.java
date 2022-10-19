@@ -29,7 +29,6 @@ public class PicSingleAdapt extends RecyclerView.Adapter<PicViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull PicViewHolder holder, int position) {
         holder.pic.setImageBitmap(bitmapList.get(position));
-
     }
 
     @Override

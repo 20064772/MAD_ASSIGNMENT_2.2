@@ -12,7 +12,15 @@ public class PicViewHolder extends RecyclerView.ViewHolder {
     ImageView pic;
     public PicViewHolder(@NonNull View itemView) {
         super(itemView);
-
         pic = itemView.findViewById(R.id.picture);
+
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
+
+
 }
