@@ -40,8 +40,6 @@ public class PicSingleFrag extends Fragment {
         viewModel = new ViewModelProvider((ViewModelStoreOwner) getActivity(), (ViewModelProvider.Factory) new ViewModelProvider.NewInstanceFactory()).get(SharedViewModel.class);
         //bitmapList =  from view model;
         bitmapList = viewModel.getBitmapList();
-
-
     }
 
     @Override
@@ -57,6 +55,8 @@ public class PicSingleFrag extends Fragment {
         change.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                // swap back to grip frag
                 AppCompatActivity activity = (AppCompatActivity) view.getContext();
 
             }
