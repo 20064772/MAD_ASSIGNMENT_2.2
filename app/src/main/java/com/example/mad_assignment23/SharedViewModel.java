@@ -28,4 +28,8 @@ public class SharedViewModel extends ViewModel {
     public Boolean isSet() {
         return set;
     }
+
+    public void changeSet(){
+        set = false;
+    }
 }

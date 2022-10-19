@@ -56,9 +56,9 @@ public class PicSingleFrag extends Fragment {
             @Override
             public void onClick(View view) {
 
-                // swap back to grip frag
                 AppCompatActivity activity = (AppCompatActivity) view.getContext();
-
+                PicGridFrag picFrag = new PicGridFrag();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.imageFrag, picFrag).addToBackStack(null).commit();
             }
         });
         return v;

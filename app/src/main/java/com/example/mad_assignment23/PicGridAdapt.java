@@ -24,7 +24,7 @@ public class PicGridAdapt extends RecyclerView.Adapter<PicViewHolder> {
     public PicViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View v = layoutInflater.inflate(R.layout.pic_item, parent,  false);
-        PicViewHolder imageViewHolder = new PicViewHolder(v);
+        PicViewHolder imageViewHolder = new PicViewHolder(v, bitmapList);
         return imageViewHolder;
     }
 

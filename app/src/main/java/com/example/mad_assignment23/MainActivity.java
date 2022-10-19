@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -110,6 +111,15 @@ public class MainActivity extends AppCompatActivity {
                 Fragment picFrag = (PicGridFrag) fm.findFragmentById(R.id.imageFrag);
 
                 if (picFrag == null){
+                    Bundle b = new Bundle();
+                    b.putParcelableArrayList("Image list", (ArrayList<? extends Parcelable>) bitmap);
+                    picFrag = new PicGridFrag();
+                    picFrag.setArguments(b);
+                    fm.beginTransaction().add(R.id.imageFrag, picFrag).commit();
+                }else{
+                    getSupportFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                    SharedViewModel  viewModel = new ViewModelProvider(picFrag.getActivity(), (ViewModelProvider.Factory) new ViewModelProvider.NewInstanceFactory()).get(SharedViewModel.class);
+                    viewModel.changeSet();
                     Bundle b = new Bundle();
                     b.putParcelableArrayList("Image list", (ArrayList<? extends Parcelable>) bitmap);
                     picFrag = new PicGridFrag();

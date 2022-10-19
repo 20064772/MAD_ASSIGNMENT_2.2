@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class PicSingleAdapt extends RecyclerView.Adapter<PicViewHolder> {
+public class PicSingleAdapt extends RecyclerView.Adapter<PicSigViewHolder> {
 
     private List<Bitmap> bitmapList;
     public PicSingleAdapt(List<Bitmap> bitmapList){
@@ -19,15 +19,15 @@ public class PicSingleAdapt extends RecyclerView.Adapter<PicViewHolder> {
 
     @NonNull
     @Override
-    public PicViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public PicSigViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View v = layoutInflater.inflate(R.layout.pic_item, parent,  false);
-        PicViewHolder imageViewHolder = new PicViewHolder(v);
-        return imageViewHolder;
+        View v = layoutInflater.inflate(R.layout.pic_item_large, parent,  false);
+        PicSigViewHolder picSigViewHolder = new PicSigViewHolder(v, bitmapList);
+        return picSigViewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PicViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull PicSigViewHolder holder, int position) {
         holder.pic.setImageBitmap(bitmapList.get(position));
     }
 

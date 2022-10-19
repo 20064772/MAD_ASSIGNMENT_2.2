@@ -35,9 +35,13 @@ public class PicGridFrag extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bitmapList = getArguments().getParcelableArrayList("Image list");
         viewModel = new ViewModelProvider(getActivity(), (ViewModelProvider.Factory) new ViewModelProvider.NewInstanceFactory()).get(SharedViewModel.class);
-        viewModel.setData(bitmapList);
+        if (! viewModel.isSet()) {
+            bitmapList = getArguments().getParcelableArrayList("Image list");
+            viewModel.setData(bitmapList);
+        } else {
+            bitmapList = viewModel.getBitmapList();
+        }
 
 
     }
