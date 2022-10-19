@@ -1,3 +1,10 @@
+/**************************
+ * Author Ryan Mckenney
+ * Image Rerevial class used by rxJava
+ * Code Taken from lecture 9, writen by Sajib
+ */
+
+
 package com.example.mad_assignment23;
 
 import android.app.Activity;

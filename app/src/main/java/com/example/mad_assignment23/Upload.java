@@ -1,3 +1,11 @@
+/**************************
+ * Author Ryan Mckenney
+ * this class hold the code for uploading to fireBase data base
+ * contains code as recommended by Google and firebase
+ */
+
+
+
 package com.example.mad_assignment23;
 
 import static java.security.AccessController.getContext;

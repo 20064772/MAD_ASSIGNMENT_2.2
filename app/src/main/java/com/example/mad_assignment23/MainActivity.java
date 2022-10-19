@@ -1,3 +1,12 @@
+/**************************
+ * Author Ryan Mckenney
+ * Main Activity for Assignment 2.2
+ */
+
+
+
+
+
 package com.example.mad_assignment23;
 
 import androidx.appcompat.app.AppCompatActivity;

@@ -1,3 +1,10 @@
+/**************************
+ * Author Ryan Mckenney
+ * General utilits needed for rxJava
+ * Code taken from Lecture 9, writen by Sajib
+ */
+
+
 package com.example.mad_assignment23;
 
 
